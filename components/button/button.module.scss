@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.button {
+	color: white;
+	line-height: 1.1;
+	font-size: 14px;
+	letter-spacing: 1px;
+	padding: .75rem 1.1rem;
+	font-family: 'proxima nova';
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 4px;
+	background-color: $primary-blue;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+	white-space: nowrap;
+}

@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+
+.left_ctrl, .right_ctrl {
+	position: absolute;
+	top: 40%;
+	background-color: rgba(#000C28, .8);
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: 1px solid #7B7D80;
+	background-size: 7px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	box-shadow: 0 7px 12px rgba(46, 49, 52, .3);
+	z-index: 5;
+	transition: transform .3s ease;
+
+	&:hover {
+		transform: scale(1.2);
+	}
+}
+
+.left_ctrl {
+	background-image: url("/left-line.svg");
+	left: 15px;
+}
+.right_ctrl {
+	background-image: url("/right-line.svg");
+	right: 15px;
+}
+
+
+.slide {
+	position: relative;
+	z-index: 0;
+	height: 184px;
+	width: 440px;
+	background: white;
+	border-radius: 4px;
+	padding: 2rem;
+	margin: 0 .75rem;
+	box-shadow: 0 1px 2px 0 rgba(46,49,52,0.40);
+
+	@media (max-width: $mobile-bp) {
+		width: 200px;
+		padding: 1.5rem;
+	}
+}
+
+.slider {
+	position: relative;
+	background-color: #F4F5F7;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 1.5rem;
+}
+
+.icon {
+	margin-bottom: 1rem;
+	display: block;
+}
+
+.quote {
+	font-family: 'proxima nova';
+	opacity: 0.8;
+	font-size: 16px;
+	color: #2E3134;
+	letter-spacing: 0.3px;
+	text-align: center;
+	line-height: 24px;
+}

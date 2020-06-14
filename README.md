@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Notes from the author
+
+components are split up by the part of the page they represent. Everything is data driven, so it would be trivial to swap out what is show with something else in most cases.
+
+What's missing:
+- unit tests
+- working links (nothing to link to)
+- users :P
+
+What works:
+- slider rotates through the entries forward and backward (no fancy animations though...)
+- library and equipment cards animate on scroll
+- header title/button animate in when the page loads
+- language menu!
 
 ## Getting Started
 

@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './equipment.module.scss';
 
 class EquipmentItem {
@@ -7,10 +8,10 @@ class EquipmentItem {
 	) { }
 }
 
-const EquipmentCard: React.FunctionComponent<EquipmentItem> = (props) => {
-	const { title, image } = props;
+const EquipmentCard: React.FunctionComponent<EquipmentItem & { delay: number }> = (props) => {
+	const { title, image, delay } = props;
 	return (
-		<div className={`${styles.card} flex-1`}>
+		<div className={`${styles.card} flex-1`} style={{animationDelay: `.${delay}s`}}>
 			<div className="flex flex-col items-center content-center">
 				<div className={styles.card_image_wrapper}>
 					<img className={styles.card_image} src={`/${image}`} alt={title} />
@@ -28,12 +29,36 @@ interface Props {
 
 export const Equipment: React.FunctionComponent<Props> = (props) => {
 	const { title, equipment } = props;
+	const [visible, setVisibility] = useState(false);
+
+	const ourRef = useRef(null);
+	useLayoutEffect(() => {
+		const topPosition = ourRef.current.getBoundingClientRect().top;
+		const onScroll = () => {
+			const scrollPosition = (window.scrollY + window.innerHeight) * .8;
+			if (topPosition < scrollPosition) {
+				setVisibility(true);
+			}
+		};
+
+		window.addEventListener("scroll", onScroll);
+		return () => window.removeEventListener("scroll", onScroll);
+		/*
+		   remove the event listener in the cleanup function
+		   to prevent memory leaks
+		*/
+	}, []);
+
 	return (
-		<div className="flex flex-col items-center content-center justify-center">
-			<h1 className={styles.title}>{title}</h1>
-			<div className={`${styles.card_container} flex flex-col lg:flex-row flex-wrap  justify-center w-full mx-auto`}>
-				{equipment.map((e) => <EquipmentCard {...e} />)}
-			</div>
+		<div ref={ourRef} className="flex flex-col items-center content-center justify-center pb-10" style={{ minHeight: 500 }}>
+			{visible && (
+				<>
+					<h1 className={styles.title}>{title}</h1>
+					<div className={`${styles.card_container} flex flex-col lg:flex-row flex-wrap  justify-center w-full mx-auto`}>
+					{equipment.map((e, i) => <EquipmentCard {...e} delay={i} />)}
+					</div>
+				</>
+			)}
 		</div>
 	);
 }

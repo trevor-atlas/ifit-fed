@@ -1,3 +1,4 @@
+import { Dropdown } from '../dropdown/dropdown';
 import { SocialIcon } from '../social-icon/social-icon';
 import styles from './footer.module.scss';
 
@@ -29,6 +30,7 @@ export const Footer: React.FunctionComponent<Props> = (props) => {
 					))
 				}
 			</div>
+
 			<div className={`${styles.social} flex flex-row justify-center py-4`}>
 				{socialLinks.map((link) => (
 					<SocialIcon
@@ -38,15 +40,20 @@ export const Footer: React.FunctionComponent<Props> = (props) => {
 						name={link.text}
 					/>)
 				)}
-
 			</div>
-			<div className={`${styles.trademark} flex flex-row justify-center py-4`}>
-				{
-					legal.map((tm) => {
-						if (typeof tm === 'string') return <span className="px-2 md:px-4">{tm}</span>;
-						return <a className="px-2 md:px-4" href={tm.url}>{tm.text}</a>
-					})
-				}
+
+			<div className={`${styles.trademark} flex flex-col md:flex-row justify-center items-center p-4`}>
+				<Dropdown />
+				<div className="flex flex-col md:flex-row self-center justify-center items-center w-4/5 p-2 md:p-4">
+					{
+						legal.map((tm) => {
+							if (typeof tm === 'string') return <span className="px-2 md:px-4">{tm}</span>;
+							return <a className="px-2 md:px-4" href={tm.url}>{tm.text}</a>
+						})
+					}
+
+				</div>
+				<div style={{ width: 200 }}>&nbsp;</div>
 
 			</div>
 		</footer>

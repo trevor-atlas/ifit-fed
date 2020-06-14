@@ -1,88 +1,6 @@
-import styles from './library.module.scss';
-
-class LibraryEntry {
-	constructor(
-		public image: string,
-		public thumbnail: string,
-		public title: string,
-		public time: string,
-		public distance: string,
-		public playlistLength: number,
-	) { }
-}
-
-const Playlist: React.FunctionComponent<{length: number}> = (props) => {
-	const { length } = props;
-	if (!length) return null;
-	return <div className={`${styles.playlist} flex flex-col justify-center content-center text-center`}>
-		<span className={styles.playlist__title}>
-			{length}
-		</span>
-		<span className={styles.playlist__type}>
-			workouts
-		</span>
-		<img src="/playlist.svg" alt=""/>
-	</div>
-
-}
-
-const CardMetadata: React.FunctionComponent<{ time: string; distance: string; }> = (props) => {
-	const { time, distance } = props;
-	return (
-		<>
-			{(time || distance) && <div className={`flex flex-row items-start py-2`}>
-				{time ?
-					<span className={`${styles.metadata} mr-2 inline-block`}>
-								<img className="inline-block mr-1" src="/timer.png" alt=""/>
-								<span>{time}</span>
-							</span>
-					: null
-				}
-				{distance ?
-					<span className={`${styles.metadata} mr-2 inline-block`}>
-								<img className="inline-block mr-1" src="/distance.png" alt=""/>
-							<span>{distance}</span>
-						</span>
-					: null}
-			</div>}
-		</>
-	);
-};
-
-export const LibraryCard: React.FunctionComponent<LibraryEntry> = (props) => {
-
-	const {
-		image,
-		thumbnail,
-		title,
-		time,
-		distance,
-		playlistLength,
-	} = props;
-	console.log(title);
-	return (
-		<div className={styles.card}>
-			<img className={styles.image} src={`/${image}`} alt=""/>
-			<Playlist length={playlistLength} />
-			<div className={`${styles.content_container} flex `}>
-				<div className="flex flex-col flex-grow justify-between">
-					<div>
-						<div className={`${styles.title_row} flex flex-row justify-between`}>
-							<span className={styles.title}>{title}</span>
-							<img className={styles.thumbnail} src={`/${thumbnail}`} alt=""/>
-						</div>
-						<CardMetadata time={time} distance={distance} />
-
-					</div>
-					<div className="items-start">
-						<button className={styles.details_button}>view details</button>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	);
-};
+import { LibraryCard } from './library-card';
+import { LibraryEntry } from './LibraryEntry';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 interface Props {
 	entries: LibraryEntry[];
@@ -90,11 +8,30 @@ interface Props {
 
 export const Library: React.FunctionComponent<Props> = (props) => {
 	const {entries} = props;
+	const [visible, setVisibility] = useState(false);
+
+	const ourRef = useRef(null);
+	useLayoutEffect(() => {
+		const topPosition = ourRef.current.getBoundingClientRect().top;
+		const onScroll = () => {
+			const scrollPosition = (window.scrollY + window.innerHeight) * .8;
+			if (topPosition < scrollPosition) {
+				setVisibility(true);
+			}
+		};
+
+		window.addEventListener("scroll", onScroll);
+		return () => window.removeEventListener("scroll", onScroll);
+		/*
+		   remove the event listener in the cleanup function
+		   to prevent memory leaks
+		*/
+	}, []);
 	return (
-		<div className="container mx-auto flex flex-wrap justify-center py-10">
-			{entries.map((e, i) => <LibraryCard key={i} {...e} />)}
+		<div ref={ourRef} className="container mx-auto flex flex-wrap justify-center py-10" style={{ minHeight: 600 }}>
+			{ visible && entries.map((e, i) => <LibraryCard key={i} {...e} delay={i} />)}
 		</div>
-	);
+	)
 };
 
 Library.defaultProps = {

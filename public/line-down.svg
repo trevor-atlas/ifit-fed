@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="6px" viewBox="0 0 11 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Interface / General / icn_cheveron_down / line</title>
+    <defs>
+        <polygon id="path-1" points="16.893 8.99978 12.293 13.59978 7.693 8.99978 7 9.69278 12.293 14.98578 17.586 9.69278"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-97.000000, -2581.000000)">
+            <g id="Footer" transform="translate(0.000000, 2268.000000)">
+                <g id="language" transform="translate(40.000000, 304.000000)">
+                    <g id="Interface-/-General-/-icn_cheveron_down-/-line" transform="translate(50.000000, 0.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="mask" fill="#2E3134" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <g id="Fill-/-White" mask="url(#mask-2)" fill="#FFFFFF" fill-rule="nonzero">
+                            <polygon id="ui/color/white" points="0 0 24 0 24 24 0 24"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

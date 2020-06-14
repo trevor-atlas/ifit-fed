@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.dropdown {
+	position: relative;
+	width: 200px;
+	float: left;
+
+	li, .button {
+		letter-spacing: .5px;
+		padding: .8rem;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	.button:hover {
+		background-color: #7B7D80;
+	}
+
+	 li:hover {
+		background-color: #D5D6D6;
+		color: #34383C;
+	}
+}
+
+.menu {
+	box-shadow: 0 7px 9px rgba(0, 0, 0, .4);
+	background-color: #7B7D80;
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+}

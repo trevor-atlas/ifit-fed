@@ -1,11 +1,15 @@
+@import "../../styles/variables";
+
 .footer {
 	background-color: #2E3134;
 	color: white;
 
+	& a:hover {
+		color: lighten($primary-blue, 20%);
+	}
 }
 
 .primary {
-
 	h4 {
 		font-weight: bold;
 		margin-bottom: 1rem;
@@ -23,6 +27,7 @@
 		letter-spacing: 0.3px;
 		text-align: left;
 		line-height: 16px;
+
 	}
 
 }

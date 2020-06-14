@@ -13,7 +13,7 @@ What works:
 - header title/button animate in when the page loads
 - language menu!
 
-![full page](https://github.com/trevoratlas/ifit-fed/blob/fullpage.png?raw=true);
+![full page](https://github.com/trevor-atlas/ifit-fed/blob/fullpage.png?raw=true);
 
 ## Getting Started
 

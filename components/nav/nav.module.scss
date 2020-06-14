@@ -6,7 +6,6 @@
 }
 
 .product_nav {
-	width: 100%;
 	border-bottom: 2px solid $primary-border;
 	@media (max-width: $mobile-bp) {
 		display: flex;
@@ -16,7 +15,6 @@
 	a {
 		letter-spacing: 1px;
 		display: inline-block;
-		font-family: 'proxima nova', monospace;
 		font-size: 14px;
 		color: $primary-font-color;
 		padding: 1rem 2.63rem;
@@ -30,6 +28,7 @@
 
 
 		@media (max-width: $mobile-bp) {
+			padding: 1rem 1.43rem;
 			width: 33.333%;
 			&:last-child {
 				border: none;
@@ -37,7 +36,6 @@
 		}
 	}
 }
-
 
 .coach_nav {
 	padding: 1.5rem 2rem;
@@ -49,13 +47,16 @@
 			color: $primary-font-color;
 			line-height: 1.5;
 			padding: 1.5rem 1rem;
-			font-family: 'proxima nova';
 			font-size: 14px;
 			letter-spacing: 1px;
 			transition: color .3s ease;
 
 			&:hover {
 				color: $primary-blue;
+			}
+
+			@media (max-width: $mobile-bp) {
+				padding: 1rem .5rem;
 			}
 		}
 	}

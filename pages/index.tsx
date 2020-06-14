@@ -1,3 +1,5 @@
+import { Footer } from '../components/footer/footer';
+import { Equipment } from '../components/equipment/equipment';
 import { Library } from '../components/library/library';
 import { Slider } from '../components/slider/slider';
 import { Hero } from '../components/hero/hero';
@@ -12,17 +14,8 @@ export default function Home() {
 			<Hero />
 			<Slider />
 			<Library />
-
-			<footer>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{' '}
-					<img src="/vercel.svg" alt="Vercel Logo" className="logo"/>
-				</a>
-			</footer>
+			<Equipment />
+			<Footer />
 		</>
 	);
 }

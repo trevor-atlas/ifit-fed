@@ -1,3 +1,19 @@
+@font-face {
+	font-family: proxy;
+	src: url("/proxima/proxima-regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: proxy;
+	font-weight: bold;
+	src: url("/proxima/proxima-bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: league;
+	src: url("/league-gothic/LeagueGothic-Regular.otf") format("opentype");
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -6,6 +22,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'proxima nova', sans-serif, monospace;
+  font-family: proxy, sans-serif, monospace;
 }
 

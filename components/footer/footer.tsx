@@ -1,13 +1,8 @@
+import { FooterLink } from './FooterLink';
 import { Dropdown } from '../dropdown/dropdown';
 import { SocialIcon } from '../social-icon/social-icon';
 import styles from './footer.module.scss';
 
-class FooterLink {
-	constructor(
-		public url: string,
-		public text: string
-	) { }
-}
 
 interface Props {
 	primaryLinks: Record<string, FooterLink[]>;
@@ -51,7 +46,6 @@ export const Footer: React.FunctionComponent<Props> = (props) => {
 							return <a className="px-2 md:px-4" href={tm.url}>{tm.text}</a>
 						})
 					}
-
 				</div>
 				<div style={{ width: 200 }}>&nbsp;</div>
 

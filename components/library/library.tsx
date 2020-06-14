@@ -22,10 +22,6 @@ export const Library: React.FunctionComponent<Props> = (props) => {
 
 		window.addEventListener("scroll", onScroll);
 		return () => window.removeEventListener("scroll", onScroll);
-		/*
-		   remove the event listener in the cleanup function
-		   to prevent memory leaks
-		*/
 	}, []);
 	return (
 		<div ref={ourRef} className="container mx-auto flex flex-wrap justify-center py-10" style={{ minHeight: 600 }}>

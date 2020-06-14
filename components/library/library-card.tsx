@@ -1,3 +1,4 @@
+import { LibraryEntry } from './LibraryEntry';
 import styles from './library.module.scss';
 
 const Playlist: React.FunctionComponent<{length: number}> = (props) => {
@@ -23,16 +24,16 @@ const CardMetadata: React.FunctionComponent<{ time: string; distance: string; }>
 			{(time || distance) && <div className={`flex flex-row items-start py-2`}>
 				{time ?
 					<span className={`${styles.metadata} mr-2 inline-block`}>
-								<img className="inline-block mr-1" src="/timer.png" alt=""/>
-								<span>{time}</span>
-							</span>
+						<img className="inline-block mr-1" src="/timer.png" alt=""/>
+						<span>{time}</span>
+					</span>
 					: null
 				}
 				{distance ?
 					<span className={`${styles.metadata} mr-2 inline-block`}>
-								<img className="inline-block mr-1" src="/distance.png" alt=""/>
-							<span>{distance}</span>
-						</span>
+						<img className="inline-block mr-1" src="/distance.png" alt=""/>
+						<span>{distance}</span>
+					</span>
 					: null}
 			</div>}
 		</>
